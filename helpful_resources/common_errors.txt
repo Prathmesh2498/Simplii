@@ -1,0 +1,12 @@
+Error:
+from flask import Blueprint, make_response
+ModuleNotFoundError: No module named 'flask'
+
+Since we run the app in a virtual environment, you get this error if you don't activate the virtual environment 
+before running python app.py.
+
+Error:
+'NoneType' object has no attribute 'cursor'
+
+Since local MYSQL db is used for the project and you ideally shouldn't push you local password, 
+you will get this error if you haven't changed the string "YOUR_PASSWORD_HERE" to you local password in the file sql_helper.py 
