@@ -240,5 +240,9 @@ Please refer to the [Contributing.md](https://github.com/Himanshuu-Gupta/Simplii
 </center>
 
 ## Support
-For any queries and help, please reach out to us at: aunayak@ncsu.edu
+For any queries and help, please reach out to us at: 
+ - Prathmesh Deshpande: pydeshpa@ncsu.edu
+ - Payal Mehta: pmehta5@ncsu.edu
+ - Shruti Yadav: syadav23@ncsu.edu
+ - Sumedh Limburkar: slimbur@ncsu.edu
 
