@@ -39,6 +39,24 @@ def update_task():
     flash('User details have been successfully updated', 'success')
     return redirect('/')
 
+@tasks.route('/sub', methods=['POST'])
+def create_subtask():
+    print ("sub dataaaaaaaaaaa")
+    data = request.form
+    # taskid = request.args.get('taskid')
+    print(data)
+    independent_dicts = []
+    for key, value in data.items():
+        print(key)
+        if key == 'subtaskname[]':
+            key = 'TaskName'
+        independent_dicts.append({key: value})
+    
+    print(independent_dicts)
+    task.create_subtasks(data)
+    return redirect('/')
+
+
 @tasks.route('/edit_task', methods=['GET', 'POST'])
 def edit_task():
     existing_data = None
