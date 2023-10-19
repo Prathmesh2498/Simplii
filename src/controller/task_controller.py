@@ -41,7 +41,6 @@ def update_task():
 
 @tasks.route('/sub', methods=['POST'])
 def create_subtask():
-    print ("sub dataaaaaaaaaaa")
     data = request.form
     # taskid = request.args.get('taskid')
     print(data)
