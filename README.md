@@ -83,6 +83,15 @@ ER Diagram                 |  Application Flowchart
 - **Visualization Of Tasks**
 <img src="https://raw.githubusercontent.com/adamyen/Simplii/main/docs/Phase%203/Task%20Visualization.png" width="1000"/>
 
+## Phase 4 Works:
+- **Initial Home Page**
+  By default, the home page used to redirect to Jessica Holds 
+<img src = "https://github.com/Prathmesh2498/Simplii/blob/m-payal-update-README-2/docs/Phase%204/Old%20login%20session.png" width = "1000"/>
+
+- **Updated Home Page**
+  Now the home page directs to the current logged in user
+<img src = "https://github.com/Prathmesh2498/Simplii/blob/m-payal-update-README-2/docs/Phase%204/New%20login%20session.png" width = "1000"/>
+
 ## Getting started:
 
   - ### Prerequisite:
@@ -161,16 +170,36 @@ This project is licensed under the terms of the MIT license. Please check [Licen
 - [x] CI/CD Build pipeline should be implemented
 - [x] Implemented e-mail notification system
 
+## Phase 4:
+- [x] User session management implemented
+- [x] Implemented edit tasks operation
+- [x] Implemented Sub-tasks feature
+- [x] Added Delete operation in backend for delete button
+- [x] Fixed tasks tables: mapped with correct values
+- [x] Added common errors in the helpful_resources folder for quick debugging. 
+
+ 
 ### Future Enhancements:
 
-- [ ] User session management needs to be implemented
+- [ ] Fix notification system for emails
 - [ ] Slack/ Discord Reminders or Subscription
-- [ ] Sub-tasks check list within a task
+- [ ] Add date tracking for sub tasks
 
 
 ## Contributions to the Project
 Please refer to the [Contributing.md](https://github.com/Himanshuu-Gupta/Simplii/blob/main/CONTRIBUTING.md) if you want to contrbute to the Wolftrack source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
+## Contributors of Phase 4
+<center>
+  <table>
+  <tr>
+    <td align="center"><a href="https://github.com/m-payal"><img src="https://avatars.githubusercontent.com/u/51577440?v=4" width="100px;" alt=""/><br /><sub><b>Payal Mehta</b></sub></a></td>
+    <td align="center"><a href="https://github.com/Prathmesh2498"><img src="https://avatars.githubusercontent.com/u/46598699?v=4" width="100px;" alt=""/><br /><sub><b>Prathmesh Deshpande</b></sub></a></td>
+    <td align="center"><a href="https://github.com/sshrutii"><img src="https://avatars.githubusercontent.com/u/58786334?v=4" width="100px;" alt=""/><br /><sub><b>Shruti Yadav</b></sub></a></td>
+    <td align="center"><a href="https://github.com/sumedh-git"><img src="https://avatars.githubusercontent.com/u/58886133?v=4" width="100px;" alt=""/><br /><sub><b>Sumedh Limurkar</b></sub></a></td>
+  </tr>
+</table>
+</center>
 
 ## Contributors of Phase 3
 <center>
@@ -212,5 +241,9 @@ Please refer to the [Contributing.md](https://github.com/Himanshuu-Gupta/Simplii
 </center>
 
 ## Support
-For any queries and help, please reach out to us at: aunayak@ncsu.edu
+For any queries and help, please reach out to us at: 
+ - Prathmesh Deshpande: pydeshpa@ncsu.edu
+ - Payal Mehta: pmehta5@ncsu.edu
+ - Shruti Yadav: syadav23@ncsu.edu
+ - Sumedh Limburkar: slimbur@ncsu.edu
 

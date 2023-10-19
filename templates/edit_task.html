@@ -1,5 +1,12 @@
-{% extends "layout/base.html" %}
-{% block content %}
+<script>
+    window.onbeforeunload = function() {
+      fetch('/clear_session_variable')
+      .then(response => response.text())
+      .then(data => console.log("Bye!"));
+    };
+</script>
+{% extends "layout/base.html" %} {% block content %}
+
 <div class="container-fluid">
     <div class="row content">
         <!-- Left Sidebar -->
