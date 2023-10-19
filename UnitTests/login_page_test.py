@@ -1,33 +1,48 @@
-#from ..app import app as current_app
-from flask import Flask
 import unittest
-import sys,os,inspect
+from flask import Flask
+from src.controller.user_controller import create_user, login_control, get_loggedIn_User
 
-currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-parentdir = os.path.dirname(currentdir)
-sys.path.insert(0, parentdir)
+class TestFlaskApp(unittest.TestCase):
+    def setUp(self):
+        self.app = Flask(__name__)
+        self.app.config['TESTING'] = True
+        self.app.config['WTF_CSRF_ENABLED'] = False
 
-current_app = Flask(__name__)
-class FlaskTest(unittest.TestCase):
+    def test_login_method(self):
+        with self.app.test_client() as client:
+            response = client.get('/login')
+            self.assertEqual(response.status_code, 200)
 
-    #check if response is 200
-    def test_index(self):
-        tester = current_app.test_client(self)
-        response = tester.get("/login")
-        statuscode = response.status_code
-        self.assertEqual(statuscode, 404)
+    def test_login_post_method_valid(self):
+        with self.app.test_client() as client:
+            response = client.post('/login', data=dict(
+                username="testuser",
+                password="testpassword"
+            ), follow_redirects=True)
+            self.assertEqual(response.status_code, 200)
 
-    #check if content returned is application/json
-    def test_index_content(self):
-        tester = current_app.test_client(self)
-        response = tester.get("/login")
-        self.assertEqual(response.content_type, "text/html; charset=utf-8")
+    def test_login_post_method_invalid(self):
+        with self.app.test_client() as client:
+            response = client.post('/login', data=dict(
+                username="invaliduser",
+                password="invalidpassword"
+            ), follow_redirects=True)
+            self.assertEqual(response.status_code, 200)
 
-    #check data returned
-    # def test_index_data(self):
-    #     tester = current_app.test_client(self)
-    #     response = tester.get("/login")
-    #     self.assertEqual(b'Simplii' in response.data, True)
+    def test_signup_method(self):
+        with self.app.test_client() as client:
+            response = client.post('/signup', data=dict(
+                username="newuser",
+                password="newpassword",
+                email="newuser@example.com",
+                fullname="New User"
+            ), follow_redirects=True)
+            self.assertEqual(response.status_code, 200)
 
-if __name__=="__main__":
-     unittest.main()
+    def test_logout_method(self):
+        with self.app.test_client() as client:
+            response = client.get('/logout', follow_redirects=True)
+            self.assertEqual(response.status_code, 200)
+
+if __name__ == '__main__':
+    unittest.main()
