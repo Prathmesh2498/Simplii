@@ -172,10 +172,11 @@ This project is licensed under the terms of the MIT license. Please check [Licen
 
 ## Phase 4:
 - [x] User session management implemented
-- [x] Implemented edit tak operation
+- [x] Implemented edit tasks operation
 - [x] Implemented Sub-tasks feature
 - [x] Added Delete operation in backend for delete button
 - [x] Fixed tasks tables: mapped with correct values
+- [x] Added common errors in the helpful_resources folder for quick debugging. 
 
  
 ### Future Enhancements:
