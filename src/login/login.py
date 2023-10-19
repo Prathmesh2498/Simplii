@@ -4,15 +4,17 @@ from src.controller.user_controller import create_user, login_control, get_logge
 
 login = Blueprint('login', __name__)
 
+
 @login.route('/login', methods=['GET'])
 def loginMethod():
     """This function renders the login page."""
     return render_template("login.html")
 
+
 @login.route('/login', methods=['POST'])
 def loginPostMethod():
     """This function logs in users and redirects to home page."""
-    loginStatus  = login_control(request.form)
+    loginStatus = login_control(request.form)
     if loginStatus:
         userDetails = get_loggedIn_User(request.form["username"])
         session["username"] = userDetails[0]
@@ -21,6 +23,7 @@ def loginPostMethod():
         return redirect("/")
     flash("Incorrect username or password!", 'error')
     return redirect("/login")
+
 
 @login.route('/signup', methods=['POST'])
 def signUpMethod():
@@ -33,6 +36,7 @@ def signUpMethod():
     else:
         flash("Sign up failed, Please try again!", 'error')
         return redirect("/login")
+
 
 @login.route('/logout', methods=['GET'])
 def logoutMethod():
