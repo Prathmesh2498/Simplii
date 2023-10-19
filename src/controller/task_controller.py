@@ -68,3 +68,8 @@ def edit_task():
 
     return render_template('edit_task.html', existing_data=existing_data)
 
+@tasks.route('/get_subtasks',methods=['GET'])
+def get_subtasks():
+    existing_data = None
+    task_id = request.form['taskid']
+    existing_data = task.get_all_subtasks(task_id)

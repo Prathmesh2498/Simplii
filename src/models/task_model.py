@@ -114,3 +114,9 @@ class task_model:
         con.run_query(query)
         return
 
+    def get_all_subtasks(self, taskid):
+        query = "SELECT * from Sub_tasks where TaskID =" + taskid
+        print(query)
+        result = con.run_query(query)
+        result = pd.DataFrame(list(result))
+        return result.to_dict('records')

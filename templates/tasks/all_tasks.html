@@ -1,9 +1,19 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Table Example</title>
+    <style>
+        .hidden-table {
+            display: none;
+        }
+    </style>
+</head>
 <div class="card status-card col-md" style="width: auto;">
     <i class="material-icons card-icons">task</i>
     <div class="card-body">
         <h5 class="card-title">All Tasks</h5>
     </div>
-    <table data-toggle="table" data-flat="true" data-search="true">
+    <table data-toggle="table" data-flat="true" data-search="true" id="sub-tasks-table">
         <thead>
             <tr style="background-color: #D5D8DD; text-align: center;">
                 <th>Task</th>
@@ -16,7 +26,7 @@
         </thead>
         <tbody>
             {% for item in all_tasks %}
-            <tr>
+            <tr onclick="toggleHiddenTable('sub-tasks-table')">
                 <td>{{ item.2 }}</td>
                 {% if item.4 == 'Done' %}
                 <td style="background-color: lightgreen;">{{ item.3 }}</td>
@@ -36,4 +46,22 @@
 
         </tbody>
     </table>
+    <table id="sub-tasks-table" class="hidden-table">
+        <tr>
+            <td>Hidden Table 1 Row 1 Data</td>
+            <td>Hidden Table 1 Row 1 Data</td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </table>
+    <script>
+        function toggleHiddenTable(tableId) {
+            console.log("In the fun")
+            var table = document.getElementById(tableId);
+            if (table.style.display === "none") {
+                table.style.display = "table";
+            } else {
+                table.style.display = "none";
+            }
+        }
+    </script>
 </div>

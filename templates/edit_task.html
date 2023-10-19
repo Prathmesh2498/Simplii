@@ -88,11 +88,16 @@
         // Create a new "Name" input field
         var nameField = document.createElement("input");
         nameField.type = "text";
-        nameField.name = "subtaskname[]"; // You can use an array to collect multiple subtask names
+        nameField.name = "subtaskname[]"; 
         nameField.className = "form-control";
-        nameField.placeholder = "Enter Name";
+        nameField.placeholder = "Enter Sub-task description here";
         
         var additionalField = document.getElementById("additionalField");
+        var label = document.createElement("label");
+        label.for = "text"; // Associates the label with an input field with the id "inputField"
+        label.textContent = "Enter Subtask below:"; // Text inside the label
+        label.id = "nameLabel"; // Unique identifier for the label
+        additionalField.appendChild(label);
         additionalField.appendChild(nameField);
     }
 </script>
