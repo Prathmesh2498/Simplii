@@ -9,8 +9,8 @@ class sql_helper:
             self.connection_obj = pymysql.connect(
                     host='localhost',
                     port = 3306,
-                    user = 'YOUR_USERNAME_HERE',
-                    password = 'YOUR_PASSWORD_HERE',
+                    user = 'root',
+                    password = 'mysql@123',
                     db = "simpli",
                     autocommit=True
                     ) 
