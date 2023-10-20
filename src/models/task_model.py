@@ -61,6 +61,7 @@ class task_model:
         return result.to_dict('records')
 
     def create_tasks(self, data):
+        print(data)
         columns = 'TaskID, '
         values = f'\'{uuid.uuid4()}\', '
         for key, value in data.items():
@@ -71,8 +72,35 @@ class task_model:
         print(query)
         con.run_query(query)
         return
+    
+    def create_subtasks(self, data):
+        # print(data)
+        # print(taskid)
+        columns = 'sTaskID, '
+        values = f'\'{uuid.uuid4()}\', '
+        for key, value in data.items():
+            if key == 'subtaskname[]':
+                key = 'TaskName'
+            columns += str(key)+', '
+            values += "'"+str(value)+"', "
+
+        query = "INSERT INTO Sub_tasks("+columns[:-2]+" ) VALUES (" + values[:-2]+" );"
+        print(query)
+        con.run_query(query)
+        
+        return
 
     def delete_task(self, taskid):
+        querySub = f"SELECT * from Sub_tasks where TaskID = '{taskid}';"
+        subTasks = con.run_query(querySub)
+        if len(subTasks) > 0:
+            ids = ""
+            for i in subTasks:
+                print(i[0])
+                ids += f"'{i[0]}', "
+            ids = ids[:-2]
+            queryDel = f"DELETE from Sub_tasks where STaskID IN ({ids});"
+            con.run_query(queryDel)
         query = "DELETE FROM Tasks WHERE Taskid ='"+ taskid+"';"
         con.run_query(query)
         return
@@ -96,3 +124,9 @@ class task_model:
         con.run_query(query)
         return
 
+    def get_all_subtasks(self, taskid):
+        query = f"SELECT * from Sub_tasks where TaskID = '{taskid}';"
+        print(query)
+        result = con.run_query(query)
+        result = pd.DataFrame(list(result))
+        return result.to_dict('records')
