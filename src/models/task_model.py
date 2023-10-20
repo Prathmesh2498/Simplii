@@ -10,8 +10,8 @@ class task_model:
     def __init__(self):
         pass
 
-    def get_all_taks():
-        query = "SELECT *, Categories.Category_name, DATE(Startdate), DATE(Duedate) FROM Tasks JOIN Categories ON Tasks.Category= Categories.Category_ID"
+    def get_all_tasks(username):
+        query = "SELECT *, Categories.Category_name, DATE(Startdate), DATE(Duedate) FROM Tasks JOIN Categories ON Tasks.Category= Categories.Category_ID WHERE UserID = " + f"'{username}'" + ";"
         print(query)
         result = con.run_query(query)
         result = pd.DataFrame(list(result))
