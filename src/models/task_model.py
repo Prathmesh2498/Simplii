@@ -91,6 +91,16 @@ class task_model:
         return
 
     def delete_task(self, taskid):
+        querySub = f"SELECT * from Sub_tasks where TaskID = '{taskid}';"
+        subTasks = con.run_query(querySub)
+        if len(subTasks) > 0:
+            ids = ""
+            for i in subTasks:
+                print(i[0])
+                ids += f"'{i[0]}', "
+            ids = ids[:-2]
+            queryDel = f"DELETE from Sub_tasks where STaskID IN ({ids});"
+            con.run_query(queryDel)
         query = "DELETE FROM Tasks WHERE Taskid ='"+ taskid+"';"
         con.run_query(query)
         return
