@@ -1,5 +1,5 @@
 <script>
-    window.onbeforeunload = function() {
+    window.unload = function() {
       fetch('/clear_session_variable')
       .then(response => response.text())
       .then(data => console.log("Bye!"));

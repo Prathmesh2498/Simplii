@@ -71,5 +71,6 @@ def edit_task():
 @tasks.route('/get_subtasks',methods=['GET'])
 def get_subtasks():
     existing_data = None
-    task_id = request.form['taskid']
+    task_id = request.args.get('task_id')
     existing_data = task.get_all_subtasks(task_id)
+    return render_template('tasks/view_subtasks.html', existing_data=existing_data)

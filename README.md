@@ -176,7 +176,7 @@ This project is licensed under the terms of the MIT license. Please check [Licen
 - [x] Implemented Sub-tasks feature
 - [x] Added Delete operation in backend for delete button
 - [x] Fixed tasks tables: mapped with correct values
-- [x] Added common errors in the helpful_resources folder for quick debugging. 
+- [x] Added common errors in the helpful_resources folder for quick debugging and added a file with dummy data insert queries to get DB setup.
 
  
 ### Future Enhancements:
